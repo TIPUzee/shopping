@@ -11,7 +11,7 @@ class TopMenubar extends PureComponent {
     return (
       <>
         <div className={styles.containerFluid}>
-          <div className={styles.container}>
+          <div className={styles.container + " container mx-auto"}>
             <button
               className={styles.menuToggler}
               onClick={this.handlerToOpenSidebar}

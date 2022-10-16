@@ -6,7 +6,7 @@ class OffersHeader extends PureComponent {
   render() {
     return (
       <React.Fragment>
-        <div className="grid grid-cols-4 gap-3 min-h-screen">
+        <div className="flex flex-wrap xl:justify-between lg:justify-evenly md:justify-between gap-y-8">
           <OffersCard
             mainTitle="Gaming Accessories"
             onOfferClickHandler={[
@@ -16,6 +16,7 @@ class OffersHeader extends PureComponent {
               this.props.handlerForDialogueBoxToShow,
             ]}
             onButtonClickHandler={this.props.handlerForDialogueBoxToShow}
+            bottomButtonTitle={"Shop Now"}
           ></OffersCard>
           <OffersCard
             mainTitle="Health & Personal Care"
@@ -24,6 +25,7 @@ class OffersHeader extends PureComponent {
               this.props.handlerForDialogueBoxToShow,
             ]}
             onButtonClickHandler={this.props.handlerForDialogueBoxToShow}
+            bottomButtonTitle={"Shop Now"}
           ></OffersCard>
           <OffersCard
             mainTitle="Dress"
@@ -33,11 +35,37 @@ class OffersHeader extends PureComponent {
               this.props.handlerForDialogueBoxToShow,
             ]}
             onButtonClickHandler={this.props.handlerForDialogueBoxToShow}
+            bottomButtonTitle={"Shop Now"}
           ></OffersCard>
           <OffersCard
             mainTitle="Toys under $30"
             onOfferClickHandler={[this.props.handlerForDialogueBoxToShow]}
             onButtonClickHandler={this.props.handlerForDialogueBoxToShow}
+            bottomButtonTitle={"Shop Now"}
+          ></OffersCard>
+          <OffersCard
+            mainTitle="Shop by Catagory"
+            onOfferClickHandler={[this.props.handlerForDialogueBoxToShow]}
+            onButtonClickHandler={this.props.handlerForDialogueBoxToShow}
+            bottomButtonTitle={"Shop Now"}
+          ></OffersCard>
+          <OffersCard
+            mainTitle="Computer & Accessories"
+            onOfferClickHandler={[this.props.handlerForDialogueBoxToShow]}
+            onButtonClickHandler={this.props.handlerForDialogueBoxToShow}
+            bottomButtonTitle={"Shop Now"}
+          ></OffersCard>
+          <OffersCard
+            mainTitle="Easy Returns"
+            onOfferClickHandler={[this.props.handlerForDialogueBoxToShow]}
+            onButtonClickHandler={this.props.handlerForDialogueBoxToShow}
+            bottomButtonTitle={"Learn More"}
+          ></OffersCard>
+          <OffersCard
+            mainTitle="Best Quality"
+            onOfferClickHandler={[this.props.handlerForDialogueBoxToShow]}
+            onButtonClickHandler={this.props.handlerForDialogueBoxToShow}
+            bottomButtonTitle={"Learn More"}
           ></OffersCard>
         </div>
       </React.Fragment>

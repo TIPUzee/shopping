@@ -1,16 +1,14 @@
 @use "./colors" as color
-@use "./container" as *
 @use "./transition" as transition
 $TopbarHeight: 60px
 
 .containerFluid
-  @include containerFluid()
+  width: 100%
   height: $TopbarHeight
   background-color: color.$darkBlack
   user-select: none
 
 .container
-  @include container()
   height: 100%
   display: flex
   flex-direction: row

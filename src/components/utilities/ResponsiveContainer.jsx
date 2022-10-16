@@ -1,11 +1,10 @@
 import React, { PureComponent } from "react";
-import styles from "../../sass/ResponsiveContainer.module.sass";
 
 class ResponsiveContainer extends PureComponent {
   render() {
     return (
       <div
-        className={styles.containerFluid}
+        className="w-full"
         style={
           this.props.hasOwnProperty("fluidContainerStyle")
             ? this.props.fluidContainerStyle
@@ -13,7 +12,7 @@ class ResponsiveContainer extends PureComponent {
         }
       >
         <div
-          className={styles.container}
+          className="container mx-auto"
           style={
             this.props.hasOwnProperty("containerStyle")
               ? this.props.containerStyle

@@ -1,17 +1,15 @@
 @use "./colors" as color
-@use "./container" as *
 @use "./transition" as transition
 @use "./breakPoints" as breakPoint
 $TopMenubarHeight: 50px
 
 .containerFluid
-  @include containerFluid()
+  width: 100%
   height: $TopMenubarHeight
   background-color: color.$midBlack
   user-select: none
 
 .container
-  @include container()
   height: 100%
   display: flex
   column-gap: 10px

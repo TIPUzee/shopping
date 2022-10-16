@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import { ResponsiveContainer } from "./utilities";
 import "../css/tailwind.css";
 import OffersHeader from "./OffersHeader";
+import SliderOffers from "./SliderOffers";
 
 class OffersContainer extends PureComponent {
   state = {};
@@ -17,12 +18,13 @@ class OffersContainer extends PureComponent {
           containerStyle={{ paddingInline: "30px" }}
         >
           {/* wrapper */}
-          <div className="">
+          <div className="offers-wrapper flex flex-col gap-12">
             <OffersHeader
               handlerForDialogueBoxToShow={
                 this.props.handlerForDialogueBoxToShow
               }
             />
+            <SliderOffers />
           </div>
           {/* wrapper */}
         </ResponsiveContainer>

@@ -9,7 +9,7 @@ class Topbar extends PureComponent {
     return (
       <>
         <div className={styles.containerFluid}>
-          <div className={styles.container}>
+          <div className={styles.container + " container mx-auto"}>
             <div className={styles.logo}></div>
             <SearchTextField></SearchTextField>
             <div className={styles.cartIconHolder}>
