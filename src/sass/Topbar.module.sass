@@ -1,0 +1,48 @@
+@use "./colors" as color
+@use "./container" as *
+@use "./transition" as transition
+$TopbarHeight: 60px
+
+.containerFluid
+  @include containerFluid()
+  height: $TopbarHeight
+  background-color: color.$darkBlack
+  user-select: none
+
+.container
+  @include container()
+  height: 100%
+  display: flex
+  flex-direction: row
+  align-items: center
+
+.logo
+  height: 100%
+  width: 130px
+  margin-right: auto
+
+.cartIconHolder
+  height: 100%
+  display: flex
+  flex-direction: row
+  column-gap: 5px
+  cursor: pointer
+  color: color.$lightWhite
+  fill: currentColor
+  @include transition.colorTransition()
+
+  &:hover
+    color: color.$white
+
+.cartIcon
+  height: 100% !important
+  fill: inherit !important
+  font-size: 40px !important
+  transition: inherit
+
+.cartCount
+  height: 100%
+  color: inherit !important
+  font-size: 1.3rem
+  line-height: $TopbarHeight
+  transition: inherit

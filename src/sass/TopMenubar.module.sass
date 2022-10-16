@@ -1,0 +1,55 @@
+@use "./colors" as color
+@use "./container" as *
+@use "./transition" as transition
+@use "./breakPoints" as breakPoint
+$TopMenubarHeight: 50px
+
+.containerFluid
+  @include containerFluid()
+  height: $TopMenubarHeight
+  background-color: color.$midBlack
+  user-select: none
+
+.container
+  @include container()
+  height: 100%
+  display: flex
+  column-gap: 10px
+
+.menuToggler
+  @include transition.colorTransition()
+  background: none
+  outline: none
+  border: none
+  height: 100%
+  color: color.$lightWhite
+  display: flex
+  align-items: center
+  column-gap: 4px
+  font-size: 1.2rem
+  cursor: pointer
+  &:hover
+    color: color.$white
+
+.menuWrapper
+  display: flex
+  @include breakPoint.lessThan576()
+    display: none
+
+  li
+    display: contents
+
+    button
+      @include transition.colorTransition()
+      background: none
+      outline: none
+      border: none
+      height: 100%
+      padding-inline: 12px
+      color: color.$lightWhite
+      display: flex
+      align-items: center
+      font-size: 0.9rem
+      cursor: pointer
+      &:hover
+        color: color.$white

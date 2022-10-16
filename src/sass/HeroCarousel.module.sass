@@ -1,0 +1,32 @@
+@use "./colors"
+@use "./breakPoints"
+
+@mixin main($map)
+  .item
+    height: map-get($map, 'itemsHeight')
+    position: relative
+    z-index: 0
+
+  .bg
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: center
+
+  .header
+    position: absolute
+    top: 80px
+    left: 0
+    padding: 1rem 3rem 1rem 2rem
+    font-size: 26px
+    font-weight: 700
+    background-color: colors.$midBlack
+    color: colors.$white
+
+  .img-placeholder
+    height: map-get($map, 'itemsHeight')
+
+@include main((itemsHeight: 370px))
+
+@include breakPoints.sm()
+  @include main((itemsHeight: 300px))

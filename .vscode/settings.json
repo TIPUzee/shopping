@@ -1,0 +1,10 @@
+{
+  "superBG.opacity": 28,
+  "superBG.disable": false,
+  "superBG.images": [
+    "/home/zeeshan_user/Pictures/Wallpapers/vscode-wallpaper.jpg"
+  ],
+  "superBG.activeImage": 0,
+  "superBG.url": "",
+  "dimmer.enabled": false
+}

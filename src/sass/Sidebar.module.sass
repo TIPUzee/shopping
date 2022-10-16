@@ -1,0 +1,194 @@
+@use "./colors"
+@use "./transition"
+@use "./breakPoints"
+
+$menusInlinePadding: 25px
+$profileHeaderHeight: 60px
+$sidebarWrapperWidth: 370px
+$sidebarWrapperWidthSmall: 280px
+.dropback
+  position: fixed
+  z-index: 999
+  inset: 0
+  background-color: colors.$black50
+  opacity: 0
+  animation: dropbackOut 200ms ease-in forwards
+  user-select: none
+
+.dropback.active
+  animation: dropbackIn 200ms ease-in forwards
+
+@keyframes dropbackIn
+  0%
+    opacity: 0
+    display: block
+
+  100%
+    opacity: 1
+
+@keyframes dropbackOut
+  0%
+    opacity: 1
+    display: block
+  99%
+    opacity: 0
+    display: block
+  100%
+    pointer-events: none
+
+.sidebarWrapper
+  position: relative
+  top: 0
+  left: 0
+  width: $sidebarWrapperWidth
+  height: 100%
+  max-height: 100%
+  overflow-x: hidden
+  background-color: white
+  display: flex
+  flex-direction: column
+  transition: transform 500ms ease-in-out
+  transform: translateX(-100%)
+  *
+    pointer-events: none !important
+
+.sidebarWrapper.active
+  transform: translateX(0)
+  *
+    pointer-events: auto !important
+
+.sidebarCloser
+  @include transition.colorTransition()
+  position: absolute
+  top: 5px
+  left: calc($sidebarWrapperWidth + 10px )
+  color: colors.$lightWhite
+  font-size: 3rem !important
+  z-index: 999999
+  cursor: pointer
+  &:hover
+    color: colors.$white
+
+.profileHeader
+  border: none
+  width: 100%
+  height: $profileHeaderHeight
+  flex-shrink: 0
+  background-color: colors.$darkBlack
+  color: colors.$white
+  font-weight: 600
+  font-size: 1.2rem
+  display: flex
+  align-items: center
+  column-gap: 15px
+  padding-inline: $menusInlinePadding
+  cursor: pointer
+  .accountCircleIcon
+    font-size: 30px
+
+#mainMenu
+  transition: transform 200ms ease-in-out
+  transform: translateX(-100%)
+  &.active
+    transform: translateX(0)
+
+.menuOutterWrapper
+  flex-grow: 1
+  overflow-y: auto
+
+.menuWrapper
+  height: max-content
+
+.menuSection
+  width: 100%
+  padding-block: 10px
+  border-bottom: 0.5px solid colors.$black30
+
+.settingsMenuSection
+  padding-bottom: 30px
+  .menu
+    justify-content: start
+    column-gap: 13px
+
+.title
+  padding-block: 10px
+  padding-inline: $menusInlinePadding
+  font-weight: 600
+
+.menu
+  @include transition.colorTransition()
+  width: 100%
+  padding-block: 14px
+  padding-inline: $menusInlinePadding
+  font-size: 0.85rem
+  display: flex
+  justify-content: space-between
+  align-items: center
+  color: colors.$lightBlack
+  cursor: pointer
+
+  &:hover
+    background-color: colors.$black20
+    color: black
+
+  svg
+    transition: inherit
+    font-size: 1rem
+    color: inherit !important
+
+.innerMenuWrapper
+  transition: transform 200ms ease-in-out
+  position: absolute
+  top: $profileHeaderHeight
+  left: 0
+  width: 100%
+  height: calc( 100vh - $profileHeaderHeight )
+  overflow-y: auto
+  flex-direction: column
+  transform: translateX(100%)
+  pointer-events: none
+  &.active
+    transform: translateX(0)
+
+  .title
+    color: black
+
+  :is(button, .menu)
+    pointer-events: auto
+
+button.backToMainMenu
+  flex-shrink: 0
+  position: sticky
+  top: 0
+  background-color: white !important
+  width: 100%
+  height: 50px
+  border: none
+  outline: none
+  background: none
+  padding-inline: $menusInlinePadding
+  text-align: left
+  border-bottom: 0.5px solid colors.$black30
+  display: flex
+  align-items: center
+  column-gap: 5px
+  font-size: 0.9rem
+  font-weight: 600
+  cursor: pointer
+
+.backToMainMenuIcon
+  font-size: 1.6rem !important
+  fill: colors.$black50 !important
+
+.options
+  display: block
+
+// responsive
+@include breakPoints.lessThan576()
+  .sidebarWrapper
+    width: $sidebarWrapperWidthSmall
+
+  .sidebarCloser
+    position: fixed
+    left: unset
+    right: 10px
